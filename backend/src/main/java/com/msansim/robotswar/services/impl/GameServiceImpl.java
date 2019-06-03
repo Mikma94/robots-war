@@ -18,10 +18,10 @@ public class GameServiceImpl implements GameService {
 
 	@Override
 	public GameEntity save(GameEntity game) {
-		game.setHealthPlayer1(80);
-		game.setHealthPlayer2(80);
-		game.setNamePlayer1("Robot 1");
-		game.setNamePlayer2("Robot 2");
+		game.setHealthRobot1(80);
+		game.setHealthRobot2(80);
+		game.setNameRobot1("Robot 1");
+		game.setNameRobot2("Robot 2");
 		game.setDateAndTime(Instant.now());
 		return gameRepository.saveAndFlush(game);
 	}

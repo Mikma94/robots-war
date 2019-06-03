@@ -37,7 +37,7 @@ export default {
     };
   },
   mounted() {
-    axios.post("http://localhost:8088/api/game", this.game).then(response => {
+    axios.post("api/game", this.game).then(response => {
       this.game = response.data;
     });
   },
@@ -91,7 +91,7 @@ export default {
       }
     },
     finish() {
-      axios.put("http://localhost:8088/api/game", this.game).then(response => {
+      axios.put("api/game", this.game).then(response => {
         this.game = response.data;
       });
     }

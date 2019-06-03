@@ -38,7 +38,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:8088/api/game").then(response => {
+    axios.get("api/game").then(response => {
       this.games = response.data;
     });
   },
@@ -47,7 +47,7 @@ export default {
       if (this.games.length <= 0) {
         alert("Not exists games");
       } else {
-        axios.delete("http://localhost:8088/api/game").then(response => {
+        axios.delete("api/game").then(response => {
           this.games = [];
         });
       }
