@@ -11,8 +11,8 @@
       </tr>
       <tr v-for="game in games">
         <td>{{ game.dateAndTime | formatDate }}</td>
-        <td>{{ game.healthPlayer1}}</td>
-        <td>{{ game.healthPlayer2}}</td>
+        <td>{{ game.healthRobot1}}</td>
+        <td>{{ game.healthRobot2}}</td>
       </tr>
     </table>
 
@@ -29,10 +29,10 @@ export default {
       games: [],
       game: {
         id: null,
-        healthPlayer1: null,
-        healthPlayer2: null,
-        namePlayer1: "",
-        namePlayer2: "",
+        healthRobot1: null,
+        healthRobot2: null,
+        nameRobot1: "",
+        nameRobot2: "",
         dateAndTime: null
       }
     };

@@ -2,16 +2,16 @@
   <div>
     <router-link :to="{ name: 'MainMenu' }" v-if="game.gameFinished" class="update-button" tag="button">Return to menu</router-link>
     <br>
-    <input v-model="game.namePlayer1" class="form-label">
+    <input v-model="game.nameRobot1" class="form-label">
     <br>
-    <input v-model="game.healthPlayer1" class="form-health">
+    <input v-model="game.healthRobot1" class="form-health">
     <button type="button" @click="attackRobot1()">Attack</button>
     <button type="button" @click="healRobot1()">Heal</button>
     <button type="button" @click="surrender()">Surrender</button>
     <br>
-    <input v-model="game.namePlayer2" class="form-label">
+    <input v-model="game.nameRobot2" class="form-label">
     <br>
-    <input v-model="game.healthPlayer2" class="form-health">
+    <input v-model="game.healthRobot2" class="form-health">
   </div>
 </template>
 
@@ -26,10 +26,10 @@ export default {
     return {
       game: {
         id: null,
-        healthPlayer1: null,
-        healthPlayer2: null,
-        namePlayer1: "",
-        namePlayer2: "",
+        healthRobot1: null,
+        healthRobot2: null,
+        nameRobot1: "",
+        nameRobot2: "",
         gameFinished: null,
         dateAndTime: null
       },
@@ -51,11 +51,11 @@ export default {
   },
   methods: {
     attackRobot1() {
-      this.game.healthPlayer2 = this.attack(this.game.healthPlayer2);
+      this.game.healthRobot2 = this.attack(this.game.healthRobot2);
       this.robot2();
     },
     healRobot1() {
-      this.game.healthPlayer1 = this.heal(this.game.healthPlayer1);
+      this.game.healthRobot1 = this.heal(this.game.healthRobot1);
       this.robot2();
     },
     attack(health) {
@@ -83,10 +83,10 @@ export default {
       var random = Math.floor(Math.random() * (2 - 0)) + 0;
       switch (random) {
         case 0:
-          this.game.healthPlayer1 = this.attack(this.game.healthPlayer1);
+          this.game.healthRobot1 = this.attack(this.game.healthRobot1);
           break;
         case 1:
-          this.game.healthPlayer2 = this.heal(this.game.healthPlayer2);
+          this.game.healthRobot2 = this.heal(this.game.healthRobot2);
           break;
       }
     },
