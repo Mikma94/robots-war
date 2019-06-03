@@ -17,16 +17,11 @@ public class GameServiceImpl implements GameService {
     private GameRepository gameRepository;
 
 	@Override
-	public String getPrueba() {
-		return "Prueba";
-	}
-
-	@Override
 	public GameEntity save(GameEntity game) {
 		game.setHealthPlayer1(80);
 		game.setHealthPlayer2(80);
-		game.setNamePlayer1("Player 1");
-		game.setNamePlayer2("Player 2");
+		game.setNamePlayer1("Robot 1");
+		game.setNamePlayer2("Robot 2");
 		game.setDateAndTime(Instant.now());
 		return gameRepository.saveAndFlush(game);
 	}
@@ -40,6 +35,11 @@ public class GameServiceImpl implements GameService {
 	public void deleteAll() {
 		gameRepository.deleteAll();
 		
+	}
+
+	@Override
+	public GameEntity update(GameEntity game) {
+		return gameRepository.saveAndFlush(game);
 	}
 
 }

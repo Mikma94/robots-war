@@ -28,15 +28,17 @@ public class GameResource {
 	@Autowired
 	private GameMapper gameMapper;
 	
-	@GetMapping("/prueba")
-    public String index() {
-        return gameService.getPrueba();
-    }
-	
 	@PostMapping
 	public ResponseEntity<GameDto> createGame(@RequestBody GameDto gameDto) {
 		GameEntity game = gameMapper.toEntity(gameDto);
 		game = gameService.save(game);
+		return new ResponseEntity<GameDto>(gameMapper.toDto(game), HttpStatus.OK);
+	}
+	
+	@PutMapping
+	public ResponseEntity<GameDto> finishGame(@RequestBody GameDto gameDto) {
+		GameEntity game = gameMapper.toEntity(gameDto);
+		game = gameService.update(game);
 		return new ResponseEntity<GameDto>(gameMapper.toDto(game), HttpStatus.OK);
 	}
 	

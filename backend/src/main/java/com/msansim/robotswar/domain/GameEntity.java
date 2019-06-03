@@ -37,6 +37,9 @@ public class GameEntity {
 	@Column(name = "name_player_2", nullable = false)
 	private String namePlayer2;
 
+	@Column(name = "game_finished")
+	private Boolean gameFinished;
+
 	@Column(name = "date_and_time", nullable = false)
 	private Instant dateAndTime;
 
@@ -78,6 +81,14 @@ public class GameEntity {
 
 	public void setNamePlayer2(String namePlayer2) {
 		this.namePlayer2 = namePlayer2;
+	}
+
+	public Boolean getGameFinished() {
+		return gameFinished;
+	}
+
+	public void setGameFinished(Boolean gameFinished) {
+		this.gameFinished = gameFinished;
 	}
 
 	public Instant getDateAndTime() {

@@ -6,9 +6,9 @@ import com.msansim.robotswar.domain.GameEntity;
 
 public interface GameService {
 	
-	public String getPrueba();
-	
 	public GameEntity save(GameEntity game);
+	
+	public GameEntity update(GameEntity game);
 	
 	public List<GameEntity> findAll();
 	

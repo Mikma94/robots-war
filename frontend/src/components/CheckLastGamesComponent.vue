@@ -3,12 +3,20 @@
     <button type="button" @click="removeAll()">Remove All</button>
     <router-link :to="{ name: 'MainMenu' }" exact tag="button">Return to menu</router-link>
     <h1>Last Games</h1>
-    <ul v-if="games.length">
-      <li v-for="game in games">{{ game.id }},{{ game.healthPlayer1}}</li>
-    </ul>
-    <p v-if="!games.length">
-        Not exists games
-    </p>
+    <table v-if="games.length" class="result-table">
+      <tr>
+        <th>Fecha</th>
+        <th>Robot 1</th>
+        <th>Robot 2</th>
+      </tr>
+      <tr v-for="game in games">
+        <td>{{ game.dateAndTime | formatDate }}</td>
+        <td>{{ game.healthPlayer1}}</td>
+        <td>{{ game.healthPlayer2}}</td>
+      </tr>
+    </table>
+
+    <p v-if="!games.length">Not exists games</p>
   </div>
 </template>
 
@@ -37,11 +45,11 @@ export default {
   methods: {
     removeAll() {
       if (this.games.length <= 0) {
-          alert('Not exists games')
+        alert("Not exists games");
       } else {
-          axios.delete("http://localhost:8088/api/game").then(response => {
-            this.games = [];
-          });
+        axios.delete("http://localhost:8088/api/game").then(response => {
+          this.games = [];
+        });
       }
     }
   }
@@ -49,4 +57,8 @@ export default {
 </script>
 
 <style>
+.result-table {
+  width: 50%;
+  text-align: left;
+}
 </style>
